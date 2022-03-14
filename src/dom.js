@@ -120,40 +120,49 @@ window.dom = {
     on(node, eventName, fn) {
         node.addEventListener(node, eventName, fn)
     },
+
     //解除事件监听
     off(node, eventName, fn) {
         node.removeEventListener(node, eventName)
     },
+
     // 获取标签
     find(selector, node) {
         return (node || document).querySelectorAll(selector)
     },
+
     // 获取父元素
     parent(node) {
         return node.parentNode
     },
+
     // 获取子元素
     children(node) {
         return node.children
     },
+
     // 获取兄弟元素
     siblings(node) {
         return Array.from(node.parentNode.children).filter((i) => { return i !== node })
     },
+
     // 获取上一个兄弟节点
     previous(node) {
         return node.previousElementSibling
     },
+
     // 获取下一个兄弟节点
     next(node) {
         return node.nextElementSibling
     },
+
     //对给出的所有节点，遍历并进行对应操作
     each(nodeList, fn) {
         for (let i = 0; i < nodeList.length; i++) {
             fn.call(undefined, nodeList[i])
         }
     },
+
     // 用于获取该元素位于父元素的第几个子元素，从1开始
     index(node) {
         let list = this.children(node.parentNode)
